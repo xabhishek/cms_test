@@ -1,0 +1,61 @@
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  
+  <script type='text/javascript' src='jquery.js'></script>
+  
+  <style type='text/css'>
+    div {
+    margin: 20px 0;
+}
+
+textarea {
+    width: 100%;
+}
+
+  </style>
+  
+
+
+<script type='text/javascript'>//<![CDATA[ 
+
+function divClicked() {
+    var divHtml = $(this).html();
+    var editableText = $("<textarea />");
+    editableText.val(divHtml);
+    $(this).replaceWith(editableText);
+    editableText.focus();
+    // setup the blur event for this new textarea
+    editableText.blur(editableTextBlurred);
+}
+
+function editableTextBlurred() {
+    var html = $(this).val();
+    var viewableText = $("<div>");
+    viewableText.html(html);
+    $(this).replaceWith(viewableText);
+    // setup the click event for this new div
+    viewableText.click(divClicked);
+}
+
+
+//]]>  
+
+</script>
+
+
+</head>
+<body>
+  <div>If no background color is set on the Element, or its background color is set to 'transparent', the default end value will be white.</div>
+<div>Element shortcut method for tweening the background color. Immediately transitions an Element's background color to a specified highlight color then back to its set background color.</div>
+<div>Element shortcut method which immediately transitions any single CSS property of an Element from one value to another.</div>
+
+  
+</body>
+
+<script type="text/javascript">
+
+    $("div").click(divClicked);
+
+</script>
+</html>

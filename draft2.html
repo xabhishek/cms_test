@@ -1,0 +1,129 @@
+<html>
+<head>
+	<title>CMS-MMS</title>
+	<style type="text/css">
+	.menu{display: block;border: 1px solid #999;width: 300px;margin-top: 70px;}
+	.menu li{list-style-type:none;}
+	.menu a{text-decoration: none;} 
+	#content{display: block;border-left: 1px dotted #999; max-width :600px;
+		     margin-left: 300px;padding: 0px 10px 20px 10px;margin-top: -110px;}
+	.post-content #post-new{text-decoration:none;border:1px ridge #888;border-radius:5px;}
+	.post-content a{text-decoration:none;}
+	#post-new{padding-left:5px;padding-right:5px;border-radius:10px;}
+	#post-container{max-width: 530px;border: 1px solid white;border-radius:5px;}
+	#post-container h2{margin-left: 40px;}
+	#post-heading {margin: 10px auto auto 40px;width:450px;height: 25px;}
+	#post-content-content {margin-left: 40px;width:450px;margin-top: 20px;}
+	#submission{margin:5px auto 5px 408px;}
+	input[type=submit]{border-radius:20px;background-color:#fff;padding:4px 6px 4px 6px;border:1px solid #000;}
+	input[type=submit]:hover{background-color:#000;color:#fff;}
+	input[type=text]{border:none;border-bottom:1px solid #ddd;}
+	input:focus, textarea:focus {
+    outline: none;
+	}
+	input[name="submit"]{background-color:#14ab4d;border:none;color:#fff;}
+	input[name="discard"]{background-color:#d20101;border:none;color:#fff;}
+	input[name="draft"]{background-color:#FF8C00;border:none;color:#fff;}
+	textarea{resize: none; height:70px;overflow-y: hidden; }
+
+	</style>
+	<script type="text/javascript" src="./jquery.js">
+	</script>
+	<script type="text/javascript">
+	function divClicked() {
+		    var divHtml = $(this).find('span').html();
+		   	var pHtml = $(this).find('div.post-body').html();
+		    var editableText = $("<input />");
+		    var editableText2 = $("<textarea id='temp' />");
+		    editableText.val(divHtml);
+		    editableText2.val(pHtml);
+		    $(this).find('span').replaceWith(editableText);
+		    $(this).find('div.post-body').replaceWith(editableText2);
+		    editableText.focus();
+		    $('<input   type="submit" name="draft" value="&#x2709;" > <input   type="submit" name="discard" value="&#x2716;" > <input   type="submit" name="submit" value="&#x2714;" >').insertAfter('#temp');
+		    // setup the blur event for this new textarea
+		    //editableText.blur(editableTextBlurred);
+		    //editableText2.blur(editableTextBlurred);
+		}
+
+		/*function editableTextBlurred() {
+		   var html = $(this).val();
+		    var viewableText = $("<div>");
+		    viewableText.html(html);
+		    $(this).replaceWith(viewableText);
+		    // setup the click event for this new div
+		    viewableText.click(divClicked);
+		}*/
+
+
+</script>
+</head>
+<body>
+	<div id="header">
+	</div>
+	<div id="navigation">
+		<div class="menu">
+			<ul>
+				<li><a href="">Create a page</a></li>
+				<li><a href="">Customize theme</a></li>
+				<li><a href="">+ Add a link</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="content">
+		<div id="post">
+			<div class="">
+				<a id="post-new" href="#">+</a>
+				<form id="post-container">
+
+					
+					<input  id="post-heading" type="text" name="post-heading" placeholder="Title" /></br>
+
+					<textarea cols="auto" id="post-content-content" type="text" name="post-content" placeholder="Content"></textarea></br>
+
+					<div id="submission">
+					<input   type="submit" name="draft" value="&#x2709;" >
+					<input   type="submit" name="discard" value="&#x2716;" >
+					<input   type="submit" name="submit" value="&#x2714;" >
+					</div>
+
+				</form>
+				<p></p>
+			</div>
+
+
+
+			<div class="post-content">
+				<h3><a href="">&#x2729;   <span>Post title</span></a></h3>
+				<div class="post-body"><p>
+				lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.</p>
+				</div>
+			</div>
+			<div class="post-content">
+				<h3><a href="">&#x2729;   Post title</a></h3>
+				<p>lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.</p><hr>
+			</div>
+			<div class="post-content">
+				<h3><a href="">&#x2729;   Post title</a></h3>
+				<p>lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.</p><hr>
+			</div>
+			<div class="post-content">
+				<h3><a href="">&#x2729;   Post title</a></h3>
+				<p>lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.lorem ipsum is the random text for the testing.</p><hr>
+			</div>
+
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+$("#post-container").toggle();
+$("#post-new").click(function () {
+	$("#post-container").slideToggle();
+	$(this).toggle();
+});
+
+    $("div.post-content").click(divClicked);
+
+
+</script>
+</html>
